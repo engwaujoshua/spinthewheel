@@ -1,0 +1,264 @@
+.home-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* ==========================
+   WHEEL
+========================== */
+
+.wheel-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.pointer {
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 35px solid #7c3aed;
+    margin-bottom: 12px;
+    z-index: 10;
+}
+
+.wheel-container {
+    width: 500px;
+    height: 500px;
+    background: #ffffff;
+    border: 6px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#wheelCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.wheel-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.wheel-buttons button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #7c3aed;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.wheel-buttons button:hover {
+    background: #692dd1;
+}
+
+/* ==========================
+   OPTIONS PANEL
+========================== */
+
+.options-panel {
+    width: 340px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.options-panel h2 {
+    margin-bottom: 18px;
+}
+
+.option-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.option-input button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #7c3aed;
+    color: white;
+    cursor: pointer;
+}
+
+#optionsList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 1000px) {
+
+    .home-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .options-panel {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .wheel-container {
+        width: 380px;
+        height: 380px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .wheel-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .wheel-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .wheel-buttons button {
+        width: 100%;
+    }
+
+}
+
+
+.option-item {
+    display: flex;
+    gap: 10px;
+}
+
+.option-text {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.delete-option {
+    width: 42px;
+    border: none;
+    border-radius: 8px;
+    background: #ef4444;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-option:hover {
+    background: #dc2626;
+}
+
+
+.winner-message {
+    display: none;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.winner-message.show {
+    display: block;
+}
+
+#winnerText {
+    margin-bottom: 15px;
+    color: #7c3aed;
+    font-size: 24px;
+}
+
+#removeWinnerBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #ef4444;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#removeWinnerBtn:hover {
+    background: #dc2626;
+}
+
+
+.info-section {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.info-card h2 {
+    margin-bottom: 15px;
+}
+
+.info-card p,
+.info-card li {
+    line-height: 1.7;
+}
+
+.info-card ol {
+    padding-left: 20px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    margin-bottom: 8px;
+    color: #7c3aed;
+    font-size: 18px;
+}
+
+.faq-item p {
+    color: #555;
+}

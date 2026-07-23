@@ -1,0 +1,26 @@
+<svg width="400" height="440" viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+  <!-- pointer -->
+  <polygon points="200,20 185,55 215,55" fill="#B78BD6" stroke="#2b2b2b" stroke-width="2"/>
+
+  <!-- outer wheel circle -->
+  <circle cx="200" cy="240" r="176" fill="#FFFFFF" stroke="#2b2b2b" stroke-width="3"/>
+
+  <g transform="translate(0,40)">
+  <path d="M 200,200 L 200.00,30.00 A 170,170 0 0 1 347.22,115.00 Z" fill="#FFFFFF" stroke="#2b2b2b" stroke-width="2"/>
+  <path d="M 200,200 L 347.22,115.00 A 170,170 0 0 1 347.22,285.00 Z" fill="#F9E07A" stroke="#2b2b2b" stroke-width="2"/>
+  <path d="M 200,200 L 347.22,285.00 A 170,170 0 0 1 200.00,370.00 Z" fill="#F5A97F" stroke="#2b2b2b" stroke-width="2"/>
+  <path d="M 200,200 L 200.00,370.00 A 170,170 0 0 1 52.78,285.00 Z" fill="#F29B9B" stroke="#2b2b2b" stroke-width="2"/>
+  <path d="M 200,200 L 52.78,285.00 A 170,170 0 0 1 52.78,115.00 Z" fill="#C9A6E0" stroke="#2b2b2b" stroke-width="2"/>
+  <path d="M 200,200 L 52.78,115.00 A 170,170 0 0 1 200.00,30.00 Z" fill="#8FC7EA" stroke="#2b2b2b" stroke-width="2"/>
+  <line x1="200" y1="200" x2="200.00" y2="30.00" stroke="#2b2b2b" stroke-width="1.5"/>
+  <line x1="200" y1="200" x2="347.22" y2="115.00" stroke="#2b2b2b" stroke-width="1.5"/>
+  <line x1="200" y1="200" x2="347.22" y2="285.00" stroke="#2b2b2b" stroke-width="1.5"/>
+  <line x1="200" y1="200" x2="200.00" y2="370.00" stroke="#2b2b2b" stroke-width="1.5"/>
+  <line x1="200" y1="200" x2="52.78" y2="285.00" stroke="#2b2b2b" stroke-width="1.5"/>
+  <line x1="200" y1="200" x2="52.78" y2="115.00" stroke="#2b2b2b" stroke-width="1.5"/>
+  </g>
+
+  <!-- center hub -->
+  <circle cx="200" cy="240" r="22" fill="#2b2b2b"/>
+  <circle cx="200" cy="240" r="16" fill="#FFFFFF"/>
+</svg>

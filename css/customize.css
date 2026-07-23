@@ -1,0 +1,110 @@
+.customize-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* ==========================
+   CUSTOM WHEEL
+========================== */
+
+.custom-wheel-section,
+.preset-section {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.custom-wheel-section h2,
+.preset-section h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.custom-controls {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 250px;
+}
+
+.control-group label {
+    font-weight: 600;
+}
+
+.control-group input[type="color"] {
+    width: 70px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+}
+
+#spinTimeValue {
+    font-weight: bold;
+    color: #7c3aed;
+}
+
+/* ==========================
+   PRESET GRID
+========================== */
+
+.preset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.preset-card {
+    background: #fafafa;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.preset-card:hover {
+    border-color: #7c3aed;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.preset-card h3 {
+    margin-bottom: 10px;
+    color: #7c3aed;
+}
+
+.preset-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    .custom-controls {
+        flex-direction: column;
+    }
+
+    .control-group {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin the Wheel</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/customize.css">
+    <link rel="stylesheet" href="css/share.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/icons/logo.svg" alt="Spin the Wheel Logo">
+            <span>Spin the Wheel</span>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-tab="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-tab="customize">Customize</a></li>
+                <li><a href="#" class="nav-link" data-tab="share">Share</a></li>
+                <li><a href="#" class="nav-link" data-tab="settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="home" class="tab-content active">
+
+    <div class="home-layout">
+
+        <div class="wheel-section">
+
+            <div class="pointer"></div>
+
+            <div class="wheel-container">
+                <canvas id="wheelCanvas" width="500" height="500"></canvas>
+            </div>
+
+            <div class="wheel-buttons">
+                <button id="newWheelBtn">New Wheel</button>
+                <button id="enlargeBtn">Enlarge</button>
+            </div>
+
+            <div id="winnerMessage" class="winner-message">
+    <h2 id="winnerText"></h2>
+    <button id="removeWinnerBtn">Remove Winner</button>
+</div>
+
+<audio id="applauseSound">
+    <source src="assets/sounds/applause.mp3" type="audio/mpeg">
+</audio>
+
+        </div>
+
+        <aside class="options-panel">
+
+            <h2>Options</h2>
+
+            <div class="option-input">
+                <input
+                    type="text"
+                    id="optionInput"
+                    placeholder="Enter an option..."
+                >
+                <button id="addOptionBtn">Add</button>
+            </div>
+
+            <ul id="optionsList"></ul>
+
+        </aside>
+
+    </div>
+
+</section>
+      
+        <section id="customize" class="tab-content">
+
+    <div class="customize-layout">
+
+        <section class="custom-wheel-section">
+
+            <h2>Customize Your Wheel</h2>
+
+            <div class="custom-controls">
+
+                <div class="control-group">
+                    <label for="wheelColor">Wheel Color</label>
+                    <input type="color" id="wheelColor" value="#7c3aed">
+                </div>
+
+                <div class="control-group">
+                    <label for="spinTime">Spin Duration (seconds)</label>
+                    <input
+                        type="range"
+                        id="spinTime"
+                        min="2"
+                        max="10"
+                        value="5"
+                    >
+                    <span id="spinTimeValue">5s</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="preset-section">
+
+            <h2>Preset Wheels</h2>
+
+            <div class="preset-grid">
+
+                <div class="preset-card" data-preset="food">
+                    <h3>Food</h3>
+                    <p>Pizza, Burger, Sushi...</p>
+                </div>
+
+                <div class="preset-card" data-preset="movies">
+                    <h3>Movies</h3>
+                    <p>Action, Comedy, Drama...</p>
+                </div>
+
+                <div class="preset-card" data-preset="chores">
+                    <h3>Chores</h3>
+                    <p>Wash Dishes, Laundry...</p>
+                </div>
+
+                <div class="preset-card" data-preset="fitness">
+                    <h3>Fitness</h3>
+                    <p>Push-ups, Run, Squats...</p>
+                </div>
+
+                <div class="preset-card" data-preset="study">
+                    <h3>Study</h3>
+                    <p>Math, Science, History...</p>
+                </div>
+
+                <div class="preset-card" data-preset="yesno">
+                    <h3>Yes / No</h3>
+                    <p>Simple decision wheel.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</section>
+
+        <section id="share" class="tab-content">
+
+    <div class="share-layout">
+
+        <section class="share-card">
+
+            <h2>Share Your Wheel</h2>
+
+            <p>
+                Share your wheel with friends or export it for later use.
+            </p>
+
+            <div class="share-preview">
+                <canvas id="shareWheelPreview" width="250" height="250"></canvas>
+            </div>
+
+        </section>
+
+        <section class="share-card">
+
+            <h2>Share Options</h2>
+
+            <div class="share-buttons">
+
+                <button id="copyLinkBtn">Copy Link</button>
+
+                <button id="copyOptionsBtn">Copy Options</button>
+
+                <button id="downloadImageBtn">Download Image</button>
+
+                <button id="shareWhatsappBtn">WhatsApp</button>
+
+                <button id="shareTwitterBtn">X (Twitter)</button>
+
+                <button id="shareFacebookBtn">Facebook</button>
+
+            </div>
+
+        </section>
+
+        <section class="share-card">
+
+            <h2>Current Wheel</h2>
+
+            <textarea
+                id="shareOptions"
+                rows="10"
+                readonly
+                placeholder="Your wheel options will appear here..."
+            ></textarea>
+
+        </section>
+
+    </div>
+
+</section>
+
+        <section id="settings" class="tab-content">
+
+    <div class="settings-layout">
+
+        <section class="settings-card">
+
+            <h2>Appearance</h2>
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Dark Mode</h3>
+                    <p>Switch between light and dark mode.</p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider"></span>
+                </label>
+
+            </div>
+
+        </section>
+
+        <section class="settings-card">
+
+            <h2>Account</h2>
+
+            <div class="account-section">
+
+                <img
+                    src="assets/icons/logo.svg"
+                    alt="Profile"
+                    class="account-logo"
+                >
+
+                <div class="account-info">
+                    <h3>Guest User</h3>
+                    <p>You are currently using the app locally.</p>
+                </div>
+
+            </div>
+
+            <div class="account-buttons">
+                <button id="signInBtn">Sign In</button>
+                <button id="signOutBtn">Sign Out</button>
+            </div>
+
+        </section>
+
+        <section class="settings-card">
+
+            <h2>About</h2>
+
+            <p><strong>Spin the Wheel</strong></p>
+            <p>Version 1.0.0</p>
+            <p>Create custom wheels, spin them, and share your results.</p>
+
+        </section>
+
+    </div>
+
+</section>
+
+            <section class="info-section">
+
+    <div class="info-card">
+        <h2>What is Spin the Wheel?</h2>
+
+        <p>
+            Spin the Wheel is a simple decision-making tool that randomly selects
+            one option from your list. It can be used for games, giveaways,
+            classroom activities, choosing meals, picking tasks, or making any
+            random decision.
+        </p>
+    </div>
+
+    <div class="info-card">
+        <h2>How to Use</h2>
+
+        <ol>
+            <li>Add your options.</li>
+            <li>Edit or remove them if needed.</li>
+            <li>Click the wheel to spin.</li>
+            <li>Wait for the wheel to stop.</li>
+            <li>The winning option is displayed below the wheel.</li>
+        </ol>
+    </div>
+
+    <div class="info-card">
+        <h2>Frequently Asked Questions</h2>
+
+        <div id="faqContainer"></div>
+    </div>
+
+</section>
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/options.js"></script>
+    <script src="js/wheel.js"></script>
+    <script src="js/spin.js"></script>
+    <script src="js/customize.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/sound.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is Spin the Wheel?",
+    "answer": "Spin the Wheel is a random decision maker. Add your own options, spin the wheel, and let chance choose a winner."
+  },
+  {
+    "question": "How do I add options?",
+    "answer": "Type an option into the input box and click Add or press Enter. Each option is added as a new slice on the wheel."
+  },
+  {
+    "question": "How do I spin the wheel?",
+    "answer": "Click the wheel to start spinning. After it stops, the winning option is displayed automatically."
+  },
+  {
+    "question": "Can I edit or remove options?",
+    "answer": "Yes. Edit any option directly in the list or remove it using the delete button."
+  },
+  {
+    "question": "What does New Wheel do?",
+    "answer": "New Wheel clears all current options so you can create a completely new wheel."
+  }
+]
