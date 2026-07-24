@@ -22,10 +22,5 @@ darkModeToggle.addEventListener("change", () => {
 });
 
 // Placeholder account buttons
-signInBtn.addEventListener("click", () => {
-    alert("Sign In will be added later.");
-});
-
-signOutBtn.addEventListener("click", () => {
-    alert("Sign Out will be added later.");
-});
+ssignInBtn.disabled = true;
+signOutBtn.disabled = true;

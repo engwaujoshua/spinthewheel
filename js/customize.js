@@ -110,3 +110,6 @@ presetCards.forEach(card => {
     });
 
 });
+
+window.spinDuration = spinDuration;
+window.customWheelColor = customWheelColor;

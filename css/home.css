@@ -262,3 +262,74 @@
 .faq-item p {
     color: #555;
 }
+
+
+#newOptionColor,
+.option-color {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.option-color::-webkit-color-swatch,
+#newOptionColor::-webkit-color-swatch {
+    border: none;
+    border-radius: 6px;
+}
+
+.option-color::-webkit-color-swatch-wrapper,
+#newOptionColor::-webkit-color-swatch-wrapper {
+    padding: 2px;
+}
+
+/* ==========================
+   ENLARGE MODAL
+========================== */
+
+.wheel-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.wheel-modal.show {
+    display: flex;
+}
+
+.wheel-modal-content {
+    position: relative;
+}
+
+#modalWheelCanvas {
+    width: min(85vw, 800px);
+    height: min(85vw, 800px);
+    background: white;
+    border-radius: 50%;
+}
+
+.close-modal {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #ef4444;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    background: #dc2626;
+}

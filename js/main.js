@@ -80,3 +80,56 @@ fetch("data/faq.json")
 
     })
     .catch(error => console.error(error));
+
+    function syncAllTabs() {
+
+    if (typeof updateSharePanel === "function") {
+        updateSharePanel();
+    }
+
+    if (typeof drawWheel === "function") {
+        drawWheel();
+    }
+
+}
+
+document.querySelectorAll(".nav-link").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        setTimeout(syncAllTabs, 10);
+
+    });
+
+});
+
+
+const enlargeBtn = document.getElementById("enlargeBtn");
+const wheelModal = document.getElementById("wheelModal");
+const closeWheelModal = document.getElementById("closeWheelModal");
+const modalWheelCanvas = document.getElementById("modalWheelCanvas");
+
+enlargeBtn.addEventListener("click", () => {
+
+    wheelModal.classList.add("show");
+
+    drawWheelOnCanvas(
+        modalWheelCanvas,
+        rotation
+    );
+
+});
+
+closeWheelModal.addEventListener("click", () => {
+
+    wheelModal.classList.remove("show");
+
+});
+
+wheelModal.addEventListener("click", (e) => {
+
+    if (e.target === wheelModal) {
+        wheelModal.classList.remove("show");
+    }
+
+});

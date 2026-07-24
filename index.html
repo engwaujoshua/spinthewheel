@@ -64,13 +64,23 @@
             <h2>Options</h2>
 
             <div class="option-input">
-                <input
-                    type="text"
-                    id="optionInput"
-                    placeholder="Enter an option..."
-                >
-                <button id="addOptionBtn">Add</button>
-            </div>
+
+    <input
+        type="text"
+        id="optionInput"
+        placeholder="Enter an option..."
+    >
+
+    <input
+        type="color"
+        id="newOptionColor"
+        value="#7c3aed"
+        title="Option Color"
+    >
+
+    <button id="addOptionBtn">Add</button>
+
+</div>
 
             <ul id="optionsList"></ul>
 
@@ -320,6 +330,25 @@
     <script src="js/share.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/sound.js"></script>
+
+
+    <div id="wheelModal" class="wheel-modal">
+
+    <div class="wheel-modal-content">
+
+        <button id="closeWheelModal" class="close-modal">
+            &times;
+        </button>
+
+        <canvas
+            id="modalWheelCanvas"
+            width="800"
+            height="800">
+        </canvas>
+
+    </div>
+
+</div>
 
 </body>
 </html>
