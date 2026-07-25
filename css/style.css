@@ -84,6 +84,11 @@ main {
     display: block;
 }
 
+.nav-link.active {
+    color: #7c3aed;
+    font-weight: 600;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */

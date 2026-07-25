@@ -1,0 +1,11 @@
+# pack-refs with: peeled fully-peeled sorted 
+17c747bf303e49f1e4ee86f60a3587f326d6a88f refs/heads/cloudflare/workers-autoconfig
+f51bd1c177dd3a209fe8e1e8e053647a04cca928 refs/heads/cloudflare/workers-autoconfig-2
+1177342d5a0e0333058981cfb6b9a65a7ad4852d refs/heads/cloudflare/workers-autoconfig-3
+f0e042ba8d2814896052b6c84b2ab1ae98b9c7e6 refs/heads/main
+17c747bf303e49f1e4ee86f60a3587f326d6a88f refs/pull/1/head
+6cdac7cea8a6ed327d62581c1b7dc4643ed5c409 refs/pull/1/merge
+f51bd1c177dd3a209fe8e1e8e053647a04cca928 refs/pull/2/head
+7ce5af64fe49efaf968e5034db5119ba3abffcaf refs/pull/2/merge
+1177342d5a0e0333058981cfb6b9a65a7ad4852d refs/pull/3/head
+6585c1ff343bc07aa518ad535690ddaf03bc9837 refs/pull/3/merge

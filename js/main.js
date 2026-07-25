@@ -4,6 +4,50 @@ const overlay = document.getElementById("wheelOverlay");
 const enlargeBtn = document.getElementById("enlargeBtn");
 const newWheelBtn = document.getElementById("newWheelBtn");
 
+
+/* -------------------------
+   TAB SWITCHING
+-------------------------- */
+
+const navLinks = document.querySelectorAll(".nav-link");
+const tabContents = document.querySelectorAll(".tab-content");
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        const targetTab = link.dataset.tab;
+
+        navLinks.forEach(nav => {
+            nav.classList.remove("active");
+        });
+
+        tabContents.forEach(tab => {
+            tab.classList.remove("active");
+        });
+
+        link.classList.add("active");
+
+        const activeTab = document.getElementById(targetTab);
+
+        if (activeTab) {
+            activeTab.classList.add("active");
+        }
+
+        if (typeof drawWheel === "function") {
+            drawWheel();
+        }
+
+        if (typeof updateSharePanel === "function") {
+            updateSharePanel();
+        }
+
+    });
+
+});
+
 let enlarged = false;
 
 /* -------------------------

@@ -345,3 +345,16 @@
 .wheel-section.enlarged #enlargeBtn{
     width:150px;
 }
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+    #enlargeBtn {
+        display: none;
+    }
+
+}
