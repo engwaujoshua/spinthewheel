@@ -1,135 +1,110 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const navLinks = document.querySelectorAll(".nav-link");
-    const tabContents = document.querySelectorAll(".tab-content");
+const wheelSection = document.querySelector(".wheel-section");
+const overlay = document.getElementById("wheelOverlay");
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-
-            const targetTab = link.dataset.tab;
-
-            // Remove active classes
-            navLinks.forEach(item => item.classList.remove("active"));
-            tabContents.forEach(tab => tab.classList.remove("active"));
-
-            // Activate selected tab
-            link.classList.add("active");
-
-            const selectedTab = document.getElementById(targetTab);
-
-            if (selectedTab) {
-                selectedTab.classList.add("active");
-            }
-        });
-    });
-});
-
-
+const enlargeBtn = document.getElementById("enlargeBtn");
 const newWheelBtn = document.getElementById("newWheelBtn");
 
-newWheelBtn.addEventListener("click", () => {
+let enlarged = false;
 
-    if (!confirm("Start a new wheel? This will remove all current options.")) {
-        return;
-    }
+/* -------------------------
+   ENLARGE
+-------------------------- */
 
-    wheelOptions.length = 0;
+enlargeBtn.addEventListener("click",()=>{
 
-    if (typeof renderOptions === "function") {
-        renderOptions();
-    }
+    enlarged=!enlarged;
 
-    rotation = 0;
+    wheelSection.classList.toggle("enlarged",enlarged);
 
-    if (typeof drawWheel === "function") {
-        drawWheel();
-    }
+    overlay.classList.toggle("show",enlarged);
 
-    if (typeof winnerMessage !== "undefined") {
-        winnerMessage.classList.remove("show");
-    }
+    enlargeBtn.textContent=enlarged
+        ? "Shrink"
+        : "Enlarge";
 
-    if (typeof lastWinnerIndex !== "undefined") {
-        lastWinnerIndex = -1;
-    }
+    drawWheel();
 
 });
 
+overlay.addEventListener("click",()=>{
+
+    enlarged=false;
+
+    overlay.classList.remove("show");
+
+    wheelSection.classList.remove("enlarged");
+
+    enlargeBtn.textContent="Enlarge";
+
+    drawWheel();
+
+});
+
+/* -------------------------
+   NEW WHEEL
+-------------------------- */
+
+newWheelBtn.addEventListener("click",()=>{
+
+    if(!confirm("Start a new wheel?")) return;
+
+    wheelOptions.length=0;
+
+    rotation=0;
+
+    renderOptions();
+
+});
+
+/* -------------------------
+   FAQ
+-------------------------- */
 
 fetch("data/faq.json")
-    .then(response => response.json())
-    .then(faqs => {
+.then(r=>r.json())
+.then(data=>{
 
-        const container = document.getElementById("faqContainer");
+    const faq=document.getElementById("faqContainer");
 
-        if (!container) return;
+    if(!faq) return;
 
-        faqs.forEach(faq => {
+    faq.innerHTML="";
 
-            const item = document.createElement("div");
-            item.className = "faq-item";
+    data.forEach(item=>{
 
-            item.innerHTML = `
-                <h3>${faq.question}</h3>
-                <p>${faq.answer}</p>
-            `;
+        faq.innerHTML+=`
+            <div class="faq-item">
+                <h3>${item.question}</h3>
+                <p>${item.answer}</p>
+            </div>
+        `;
 
-            container.appendChild(item);
+    });
 
-        });
+});
 
-    })
-    .catch(error => console.error(error));
+/* -------------------------
+   TAB SYNC
+-------------------------- */
 
-    function syncAllTabs() {
+function syncAllTabs(){
 
-    if (typeof updateSharePanel === "function") {
+    if(typeof updateSharePanel==="function"){
         updateSharePanel();
     }
 
-    if (typeof drawWheel === "function") {
+    if(typeof drawWheel==="function"){
         drawWheel();
     }
 
 }
 
-document.querySelectorAll(".nav-link").forEach(link => {
+document.querySelectorAll(".nav-link").forEach(link=>{
 
-    link.addEventListener("click", () => {
+    link.addEventListener("click",()=>{
 
-        setTimeout(syncAllTabs, 10);
+        setTimeout(syncAllTabs,10);
 
     });
-
-});
-
-
-const enlargeBtn = document.getElementById("enlargeBtn");
-const wheelModal = document.getElementById("wheelModal");
-const closeWheelModal = document.getElementById("closeWheelModal");
-const modalWheelCanvas = document.getElementById("modalWheelCanvas");
-
-enlargeBtn.addEventListener("click", () => {
-
-    wheelModal.classList.add("show");
-
-    drawWheelOnCanvas(
-        modalWheelCanvas,
-        rotation
-    );
-
-});
-
-closeWheelModal.addEventListener("click", () => {
-
-    wheelModal.classList.remove("show");
-
-});
-
-wheelModal.addEventListener("click", (e) => {
-
-    if (e.target === wheelModal) {
-        wheelModal.classList.remove("show");
-    }
 
 });

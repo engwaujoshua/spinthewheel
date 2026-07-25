@@ -13,6 +13,8 @@
 </head>
 <body>
 
+    <div id="wheelOverlay" class="wheel-overlay"></div>
+
     <header class="navbar">
         <div class="logo">
             <img src="assets/icons/logo.svg" alt="Spin the Wheel Logo">
@@ -39,7 +41,7 @@
 
             <div class="pointer"></div>
 
-            <div class="wheel-container">
+            <div class="wheel-container" id="homeWheelContainer">
                 <canvas id="wheelCanvas" width="500" height="500"></canvas>
             </div>
 
@@ -322,7 +324,6 @@
 
     </main>
 
-    <script src="js/main.js"></script>
     <script src="js/options.js"></script>
     <script src="js/wheel.js"></script>
     <script src="js/spin.js"></script>
@@ -330,25 +331,8 @@
     <script src="js/share.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/sound.js"></script>
+    <script src="js/main.js"></script>
 
-
-    <div id="wheelModal" class="wheel-modal">
-
-    <div class="wheel-modal-content">
-
-        <button id="closeWheelModal" class="close-modal">
-            &times;
-        </button>
-
-        <canvas
-            id="modalWheelCanvas"
-            width="800"
-            height="800">
-        </canvas>
-
-    </div>
-
-</div>
-
+   
 </body>
 </html>

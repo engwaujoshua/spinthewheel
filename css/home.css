@@ -286,50 +286,62 @@
     padding: 2px;
 }
 
-/* ==========================
-   ENLARGE MODAL
-========================== */
+/* ========= ENLARGE ========= */
 
-.wheel-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+.wheel-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9998;
 }
 
-.wheel-modal.show {
-    display: flex;
+.wheel-overlay.show{
+    display:flex;
 }
 
-.wheel-modal-content {
-    position: relative;
+.wheel-section.enlarged{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:760px;
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    z-index:9999;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
-#modalWheelCanvas {
-    width: min(85vw, 800px);
-    height: min(85vw, 800px);
-    background: white;
-    border-radius: 50%;
+.wheel-section.enlarged .wheel-container{
+    width:620px;
+    height:620px;
+    margin:auto;
 }
 
-.close-modal {
-    position: absolute;
-    top: -18px;
-    right: -18px;
-    width: 45px;
-    height: 45px;
-    border: none;
-    border-radius: 50%;
-    background: #ef4444;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    z-index: 10;
+.wheel-section.enlarged canvas{
+    width:620px;
+    height:620px;
 }
 
-.close-modal:hover {
-    background: #dc2626;
+.wheel-section.enlarged .pointer{
+    transform:translateX(-50%) scale(1.4);
+}
+
+.wheel-section.enlarged #newWheelBtn{
+    display:none;
+}
+
+.wheel-section.enlarged #enlargeBtn{
+    background:#7c3aed;
+}
+
+.wheel-section.enlarged #enlargeBtn::after{
+    content:" Shrink";
+}
+
+.wheel-section.enlarged #enlargeBtn{
+    width:150px;
 }

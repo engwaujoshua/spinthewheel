@@ -3,15 +3,14 @@ const ctx = canvas.getContext("2d");
 
 let rotation = 0;
 
-function resizeWheelCanvas() {
+function resizeWheelCanvas(){
 
-    const displaySize = Math.min(
-        canvas.parentElement.clientWidth,
-        500
-    );
+    const parent=canvas.parentElement;
 
-    canvas.width = displaySize;
-    canvas.height = displaySize;
+    const size=Math.min(parent.clientWidth,parent.clientHeight);
+
+    canvas.width=size;
+    canvas.height=size;
 
 }
 
@@ -114,70 +113,3 @@ function drawWheel() {
 window.addEventListener("resize", drawWheel);
 
 document.addEventListener("DOMContentLoaded", drawWheel);
-
-
-function drawWheelOnCanvas(targetCanvas, targetRotation = rotation) {
-
-    const context = targetCanvas.getContext("2d");
-
-    const width = targetCanvas.width;
-    const height = targetCanvas.height;
-
-    const cx = width / 2;
-    const cy = height / 2;
-    const radius = Math.min(width, height) / 2 - 8;
-
-    context.clearRect(0, 0, width, height);
-
-    if (!wheelOptions.length) return;
-
-    const sliceAngle = (Math.PI * 2) / wheelOptions.length;
-
-    context.save();
-
-    context.translate(cx, cy);
-    context.rotate(targetRotation);
-
-    wheelOptions.forEach((option, index) => {
-
-        const start = index * sliceAngle;
-        const end = start + sliceAngle;
-
-        context.beginPath();
-        context.moveTo(0,0);
-        context.arc(0,0,radius,start,end);
-        context.closePath();
-
-        context.fillStyle = option.color;
-        context.fill();
-
-        context.strokeStyle = "#fff";
-        context.lineWidth = 2;
-        context.stroke();
-
-        context.save();
-
-        context.rotate(start + sliceAngle / 2);
-
-        context.textAlign = "right";
-        context.textBaseline = "middle";
-        context.fillStyle = "#fff";
-        context.font = "bold 28px Arial";
-
-        context.fillText(
-            option.text,
-            radius - 25,
-            0
-        );
-
-        context.restore();
-
-    });
-
-    context.restore();
-
-    context.beginPath();
-    context.arc(cx,cy,40,0,Math.PI*2);
-    context.fillStyle="#fff";
-    context.fill();
-}
