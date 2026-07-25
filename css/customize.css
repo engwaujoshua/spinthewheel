@@ -108,3 +108,13 @@
     }
 
 }
+
+
+.customize-layout{
+    max-width:900px;
+    margin:auto;
+}
+
+.custom-wheel-section{
+    width:100%;
+}

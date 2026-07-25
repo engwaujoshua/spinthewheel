@@ -17,9 +17,34 @@ function showWinner(index) {
 
     winnerMessage.classList.add("show");
 
+    applauseSound.pause();
     applauseSound.currentTime = 0;
 
+    // Start almost silent
+    applauseSound.volume = 0.05;
+
     applauseSound.play().catch(() => {});
+
+    // Fade in to 35% volume
+    const targetVolume = 0.35;
+    const fadeDuration = 1200;
+    const stepTime = 50;
+    const step = targetVolume / (fadeDuration / stepTime);
+
+    const fade = setInterval(() => {
+
+        if (applauseSound.volume >= targetVolume) {
+            applauseSound.volume = targetVolume;
+            clearInterval(fade);
+            return;
+        }
+
+        applauseSound.volume = Math.min(
+            applauseSound.volume + step,
+            targetVolume
+        );
+
+    }, stepTime);
 
 }
 

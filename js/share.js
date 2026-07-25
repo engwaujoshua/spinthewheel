@@ -1,7 +1,4 @@
-const shareOptions = document.getElementById("shareOptions");
-
 const copyLinkBtn = document.getElementById("copyLinkBtn");
-const copyOptionsBtn = document.getElementById("copyOptionsBtn");
 const downloadImageBtn = document.getElementById("downloadImageBtn");
 const shareWhatsappBtn = document.getElementById("shareWhatsappBtn");
 const shareTwitterBtn = document.getElementById("shareTwitterBtn");
@@ -12,50 +9,79 @@ const previewCtx = previewCanvas.getContext("2d");
 
 function updateSharePanel() {
 
-    shareOptions.value = wheelOptions
-    .map(option => option.text)
-    .join("\n");
+    if (!shareOptions) return;
 
-    if (typeof drawWheel === "function") {
-        previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
-        previewCtx.drawImage(
-            document.getElementById("wheelCanvas"),
-            0,
-            0,
-            previewCanvas.width,
-            previewCanvas.height
-        );
+    const wheelCanvas = document.getElementById("wheelCanvas");
+
+    if (
+        !wheelCanvas ||
+        wheelCanvas.width === 0 ||
+        wheelCanvas.height === 0
+    ) {
+        return;
     }
 
+    previewCtx.clearRect(
+        0,
+        0,
+        previewCanvas.width,
+        previewCanvas.height
+    );
+
+    previewCtx.drawImage(
+        wheelCanvas,
+        0,
+        0,
+        previewCanvas.width,
+        previewCanvas.height
+    );
+
 }
+
+window.updateSharePanel = updateSharePanel;
+
+window.addEventListener("load", () => {
+
+    updateSharePanel();
+
+});
 
 const originalRenderOptions = renderOptions;
 
 renderOptions = function () {
+
     originalRenderOptions();
+
     updateSharePanel();
+
 };
 
-updateSharePanel();
-
-copyOptionsBtn.addEventListener("click", async () => {
-    await navigator.clipboard.writeText(
-    wheelOptions.map(option => option.text).join("\n")
-);
-    alert("Options copied.");
-});
 
 copyLinkBtn.addEventListener("click", async () => {
+
     await navigator.clipboard.writeText(window.location.href);
+
     alert("Page link copied.");
+
 });
 
 downloadImageBtn.addEventListener("click", () => {
 
+    const wheelCanvas = document.getElementById("wheelCanvas");
+
+    if (
+        !wheelCanvas ||
+        wheelCanvas.width === 0 ||
+        wheelCanvas.height === 0
+    ) {
+        alert("Wheel is not ready yet.");
+        return;
+    }
+
     const link = document.createElement("a");
 
     link.download = "spin-wheel.png";
-    link.href = document.getElementById("wheelCanvas").toDataURL("image/png");
+    link.href = wheelCanvas.toDataURL("image/png");
 
     link.click();
 
@@ -63,23 +89,23 @@ downloadImageBtn.addEventListener("click", () => {
 
 shareWhatsappBtn.addEventListener("click", () => {
 
-    const text = encodeURIComponent(
-        "Try my Spin the Wheel!\n\n" +
-        wheelOptions.map(option => option.text).join(", ")
-    );
+    const text = encodeURIComponent(window.location.href);
 
-    window.open(`https://wa.me/?text=${text}`, "_blank");
+    window.open(
+        `https://wa.me/?text=${text}`,
+        "_blank"
+    );
 
 });
 
 shareTwitterBtn.addEventListener("click", () => {
 
-    const text = encodeURIComponent(
-        "Try my Spin the Wheel! " +
-        wheelOptions.map(option => option.text).join(", ")
-    );
+    const text = encodeURIComponent(window.location.href);
 
-    window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
+    window.open(
+        `https://twitter.com/intent/tweet?text=${text}`,
+        "_blank"
+    );
 
 });
 
@@ -93,5 +119,3 @@ shareFacebookBtn.addEventListener("click", () => {
     );
 
 });
-
-window.updateSharePanel = updateSharePanel;
