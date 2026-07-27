@@ -109,3 +109,260 @@ main {
     }
 
 }
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.site-footer{
+    margin-top:60px;
+    padding:40px 25px 20px;
+    background:var(--card-bg,#ffffff);
+    border-top:1px solid rgba(0,0,0,.08);
+}
+
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.footer-section{
+    flex:1;
+    min-width:240px;
+}
+
+.footer-section h3{
+    margin-bottom:12px;
+    color:#7c3aed;
+}
+
+.footer-section p{
+    margin:8px 0;
+    line-height:1.6;
+}
+
+.footer-section a{
+    color:#7c3aed;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.footer-section a:hover{
+    text-decoration:underline;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:35px;
+    padding-top:20px;
+    border-top:1px solid rgba(0,0,0,.08);
+    font-size:.95rem;
+}
+
+body.dark-mode .site-footer{
+    background:#1b1b1b;
+    border-color:#333;
+}
+
+body.dark-mode .footer-bottom{
+    border-color:#333;
+}
+
+body.dark-mode .footer-section a{
+    color:#b794ff;
+}
+
+@media (max-width:768px){
+
+    .footer-content{
+        flex-direction:column;
+        gap:30px;
+    }
+
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.site-footer{
+
+    margin-top:70px;
+
+    padding:35px 8%;
+
+    border-top:1px solid rgba(0,0,0,.08);
+
+    background:#ffffff;
+
+}
+
+.footer-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.footer-left h3{
+
+    color:#7c3aed;
+
+    margin:0;
+
+    font-size:1.15rem;
+
+}
+
+.footer-left p{
+
+    margin:0;
+
+    color:#666;
+
+    line-height:1.6;
+
+}
+
+.footer-right{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.footer-right a{
+
+    color:#7c3aed;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.footer-right a:hover{
+
+    color:#5b21b6;
+
+}
+
+@media (max-width:768px){
+
+    .footer-container{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        align-items:center;
+
+    }
+}
+
+
+/* ==========================
+   PRIVACY PAGE
+========================== */
+
+.policy-page{
+
+    max-width:1000px;
+
+    margin:60px auto;
+
+    padding:0 24px;
+
+}
+
+.policy-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+
+    line-height:1.8;
+
+}
+
+.policy-card h1{
+
+    color:#7c3aed;
+
+    margin-bottom:30px;
+
+}
+
+.policy-card h2{
+
+    margin-top:35px;
+
+    color:#333;
+
+}
+
+.policy-card p,
+.policy-card li{
+
+    color:#555;
+
+}
+
+.policy-card ul{
+
+    padding-left:22px;
+
+}
+
+body.dark-mode .policy-card{
+
+    background:#222;
+
+}
+
+body.dark-mode .policy-card h2{
+
+    color:#f2f2f2;
+
+}
+
+body.dark-mode .policy-card p,
+body.dark-mode .policy-card li{
+
+    color:#d0d0d0;
+
+}
